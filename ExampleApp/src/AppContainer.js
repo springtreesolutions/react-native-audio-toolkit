@@ -14,7 +14,8 @@ import {
   MediaStates
 } from 'react-native-audio-toolkit';
 
-let filename = 'test.mp4';
+let filename = "https://firebasestorage.googleapis.com/v0/b/rituals-meditation-audio/o/nl_NL_body_5.mp3?alt=media&token=5a6a34cf-834b-4683-8d69-f45fd961dfb8";
+let recorderFile = "file.mp4";
 
 class AppContainer extends React.Component {
   constructor() {
@@ -136,7 +137,7 @@ class AppContainer extends React.Component {
       this.recorder.destroy();
     }
 
-    this.recorder = new Recorder(filename, {
+    this.recorder = new Recorder(recorderFile, {
       bitrate: 256000,
       channels: 2,
       sampleRate: 44100,
@@ -179,14 +180,14 @@ class AppContainer extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{flex:1,flexDirection:'column'}}>
         <View>
           <Text style={styles.title}>
             Playback
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Button disabled={this.state.playButtonDisabled} style={styles.button} onPress={() => this._playPause()}>
+          <Button style={styles.button} onPress={() => this._playPause()}>
             {this.state.playPauseButton}
           </Button>
           <Button disabled={this.state.stopButtonDisabled} style={styles.button} onPress={() => this._stop()}>
@@ -194,10 +195,10 @@ class AppContainer extends React.Component {
           </Button>
         </View>
         <View style={styles.settingsContainer}>
+          <Text style={styles.title}>Toggle Looping</Text>
           <Switch
           onValueChange={(value) => this._toggleLooping(value)}
           value={this.state.loopButtonStatus} />
-          <Text>Toggle Looping</Text>
         </View>
         <View style={styles.slider}>
           <Slider step={0.0001} disabled={this.state.playButtonDisabled} onValueChange={(percentage) => this._seek(percentage)} value={this.state.progress}/>
@@ -224,7 +225,7 @@ var styles = StyleSheet.create({
   button: {
     padding: 20,
     fontSize: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#CCC',
   },
   slider: {
     height: 10,
@@ -233,13 +234,15 @@ var styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   settingsContainer: {
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+    marginTop:80,
+    marginBottom:40
   },
   container: {
     borderRadius: 4,

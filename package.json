@@ -1,7 +1,7 @@
 {
   "name": "@springtree/react-native-audio-toolkit",
-  "version": "1.0.6",
-  "description": "Cross-platform audio library for React Native",
+  "version": "1.1.0",
+  "description": "Fork of futurice/react-native-audio-toolkit",
   "repository": {
     "type": "git",
     "url": "https://github.com/springtreesolutions/react-native-audio-toolkit"

@@ -12,7 +12,7 @@ import {
   Player,
   Recorder,
   MediaStates
-} from 'react-native-audio-toolkit';
+} from '@springtree/react-native-audio-toolkit';
 
 let filename = "https://firebasestorage.googleapis.com/v0/b/rituals-meditation-audio/o/nl_NL_body_5.mp3?alt=media&token=5a6a34cf-834b-4683-8d69-f45fd961dfb8";
 let recorderFile = "file.mp4";
